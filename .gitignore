@@ -1,2 +1,5 @@
-tmp/app.db
+*.db
+*.sqlite
+tmp/
+
 node_modules
