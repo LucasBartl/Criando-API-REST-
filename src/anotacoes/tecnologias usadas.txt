@@ -1,0 +1,22 @@
+Tecnologias usadas: 
+
+micro framework: fastify
+
+
+OBS: O node não reconhece o TypeScript, então é necessário instalar dependência:
+npm i -D typescript
+
+Vamos precisar criar um arquivo de configurações do typeScript:
+npx tsc --init
+
+Como o node n foi feito para o type temos que instalar o pacote @type/node
+npm install -D @types/node
+
+
+Ferramenta TSX :Permite executar arquivos TypeScript/TSX diretamente, sem precisar compilar antes, facilitando o desenvolvimento e testes.
+npm i tsx -D
+
+Ferramenta EcmaScript Lint: Ferramenta que analisa código JavaScript, encontra erros, más práticas e ajuda a padronizar o código conforme regras definidas.
+npm i eslint   @rocketseat/eslint-config -D
+----------- |  ----------------------------
+Ferramenta    pacote rocketseat
