@@ -1,10 +1,10 @@
 import fastify from 'fastify'
-import {config, db} from './database.js'
+import { config, db } from './database.js'
 
 const server = fastify()
 
-server.get('/task', async() => {
-  const tables = await config('sqlite_schema').select('*')
+server.get('/task', async () => {
+  const tables = await db('sqlite_schema').select('*')
   return tables
 })
 

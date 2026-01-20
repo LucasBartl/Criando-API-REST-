@@ -1,5 +1,5 @@
 *.db
 *.sqlite
-tmp/
+app.db
 
 node_modules
