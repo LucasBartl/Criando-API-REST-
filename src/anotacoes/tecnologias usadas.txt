@@ -25,3 +25,4 @@ Ferramenta    pacote rocketseat
 ------,, --------
 
 Migrations: Migration é o histórico versionado das mudanças do banco de dados.
+Zod: Ele garante que os dados que chegam no seu código têm o formato correto.

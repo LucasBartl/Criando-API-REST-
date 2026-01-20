@@ -3,11 +3,7 @@ import knex from 'knex'
 import type { Knex } from 'knex'
 
 //Importando o dotenv
-import 'dotenv/config'
-
-if(!process.env.DATABASE_URL){
-  throw new Error('DATABASE_URL env not found')
-}
+import { env } from './env/index.js'
 
 
 
@@ -17,7 +13,7 @@ export const config: Knex.Config = {
   client: 'sqlite3',
   // Informaçoes sobre a conexão
   connection: {
-    filename: process.env.DATABASE_URL,
+    filename: env.DATABASE_URL,
   },
   useNullAsDefault: true,
   migrations:{

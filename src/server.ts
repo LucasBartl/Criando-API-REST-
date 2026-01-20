@@ -1,24 +1,12 @@
 import fastify from 'fastify'
-import { config, db } from './database.js'
-import { randomUUID } from 'node:crypto'
-
+import { transactionsRoutes } from './routes/transactions.js'
 const server = fastify()
 
-server.get('/tasks', async () => {
-  const transations = await db('transactions').select('*')
-  return transations
-
+//Registrando o plugin q esta em routes
+server.register(transactionsRoutes,{
+  prefix:"transactions"
 })
 
-server.post('/tasks', async () => {
-  //Inserindo dados dentros da tabela transactios
-  const transations = await db('transactions').insert({
-    id: randomUUID(),
-    title: 'Transação de teste ',
-    amount: 1000,
-  }).returning('*')
-  return transations
-})
 
 server
   .listen({
