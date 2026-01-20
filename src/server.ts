@@ -1,11 +1,23 @@
 import fastify from 'fastify'
 import { config, db } from './database.js'
+import { randomUUID } from 'node:crypto'
 
 const server = fastify()
 
-server.get('/task', async () => {
-  const tables = await db('sqlite_schema').select('*')
-  return tables
+server.get('/tasks', async () => {
+  const transations = await db('transactions').select('*')
+  return transations
+
+})
+
+server.post('/tasks', async () => {
+  //Inserindo dados dentros da tabela transactios
+  const transations = await db('transactions').insert({
+    id: randomUUID(),
+    title: 'Transação de teste ',
+    amount: 1000,
+  }).returning('*')
+  return transations
 })
 
 server

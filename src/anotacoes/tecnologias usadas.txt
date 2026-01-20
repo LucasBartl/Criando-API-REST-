@@ -20,3 +20,8 @@ Ferramenta EcmaScript Lint: Ferramenta que analisa código JavaScript, encontra 
 npm i eslint   @rocketseat/eslint-config -D
 ----------- |  ----------------------------
 Ferramenta    pacote rocketseat
+
+
+------,, --------
+
+Migrations: Migration é o histórico versionado das mudanças do banco de dados.
