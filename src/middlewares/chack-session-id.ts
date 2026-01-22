@@ -10,5 +10,4 @@ export async function checkSessionIdExist (req:FastifyRequest, res:FastifyReply)
             })
 
         }
-    
 }

@@ -10,7 +10,6 @@ import { checkSessionIdExist } from '../middlewares/chack-session-id.js'
 export async function transactionsRoutes(server: FastifyInstance) {
 
     /* POST */
-
     server.post('/', async (req, res) => {
         //Queremos recuperar de body:{ title, amount, type: credit ou debit }
         const createTransationBodySchema = z.object({
@@ -49,7 +48,6 @@ export async function transactionsRoutes(server: FastifyInstance) {
         return res.status(201).send('Enviado')
     })
 
-
     /* GET DE LISTAGEM TODAS AS TRANSAÇÕES */
 
     //O segundo parametro nos definimos que antes da handler(rota) executar, 
@@ -70,7 +68,6 @@ export async function transactionsRoutes(server: FastifyInstance) {
 
             return { transactions }
         })
-
 
     /* GET DE LISTAGEM POR ID */
 
@@ -109,12 +106,10 @@ export async function transactionsRoutes(server: FastifyInstance) {
 
             //Realiza a soma dos valores e com (as:'amount') muda o nome da coluna 
             const summary = await db('transactions')
-            .where('session_id',sessionID)
-            .sum('amount', { as: 'amount' })
+                .where('session_id', sessionID)
+                .sum('amount', { as: 'amount' })
             return { summary }
         })
-
-
 }
 
 //Request body: De onde vem os dados da transaçao 

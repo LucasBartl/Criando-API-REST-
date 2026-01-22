@@ -5,10 +5,15 @@ const server = fastify()
 
 server.register(cookie)
 
+//Global
+server.addHook('preHandler', async (req, res) => {
+  console.log(`[${req.method}]${req.url}`)
+})
 
-//Rotas de transactions
-server.register(transactionsRoutes,{
-  prefix:"transactions"
+
+//Plugin de rotas da transactions
+server.register(transactionsRoutes, {
+  prefix: "transactions"
 })
 
 
