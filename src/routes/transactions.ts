@@ -3,6 +3,7 @@ import {z} from 'zod'
 import { db } from '../database.js'
 import { randomUUID } from 'node:crypto'
 
+//Cookies ->Formas de manter contexto entre as requisições
 
 
 export async function transactionsRoutes(server:FastifyInstance) {
@@ -19,17 +20,42 @@ export async function transactionsRoutes(server:FastifyInstance) {
        //valida se as informaçoes e recebe os atributos de createTransationBodySchema
        const {title, amount, type}  = createTransationBodySchema.parse(req.body)
 
+       // Procurando dentro dos cookies da requisiçao um sessionID 
+       let sessionID = req.cookies.sessionID 
+
+       if(!sessionID){
+
+        sessionID = randomUUID()
+
+        res.cookie('sessionID', sessionID,{
+            //Com o path definimos a rota que vai ter acesso aos cookies :
+            path:'/',
+            //Expiraçao dos cookies:
+            maxAge: 1000 * 60 * 60 * 24 * 7, // 7 dias
+        })
+
+       }
+
        await db('transactions').insert({
         id:randomUUID(),
         title,
-        amount: type === 'credit' ? amount : amount * -1
+        amount: type === 'credit' ? amount : amount * -1,
+        session_id: sessionID
        })
 
        return res.status(201).send('Enviado')
     })
+
     server.get('/',async()=>{
-         const transations = await db('transactions').select('*')
-        return transations
+        //Realiza a soma dos valores e com (as:'amount') muda o nome da coluna 
+        const transactions = await db('transactions').select('*')
+        return {transactions }
+    })
+
+    server.get('/summary',async()=>{
+        //Realiza a soma dos valores e com (as:'amount') muda o nome da coluna 
+        const summary = await db('transactions').sum('amount',{as: 'amount'})
+        return {summary}
     })
 
 

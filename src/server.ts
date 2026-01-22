@@ -1,8 +1,12 @@
 import fastify from 'fastify'
 import { transactionsRoutes } from './routes/transactions.js'
+import cookie from '@fastify/cookie'
 const server = fastify()
 
-//Registrando o plugin q esta em routes
+server.register(cookie)
+
+
+//Rotas de transactions
 server.register(transactionsRoutes,{
   prefix:"transactions"
 })
