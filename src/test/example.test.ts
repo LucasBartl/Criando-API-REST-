@@ -1,13 +1,13 @@
-import { expect, test, beforeAll, afterAll, describe } from 'vitest'
+import { expect, test, beforeAll, afterAll, describe, beforeEach  } from 'vitest'
 import request from 'supertest'
 import { server } from '../app.js'
 import { string } from 'zod'
-
+import {execSync} from 'node:child_process'
 
 describe('transactions rotes', () => {
     //Utilizando esse beforeAll para aguardar a utilização dos plugins já existentes 
     beforeAll(async () => {
-
+        
         await server.ready()
 
     })
@@ -17,6 +17,11 @@ describe('transactions rotes', () => {
 
         await server.close()
 
+    })
+    beforeEach(()=>{
+        execSync('npm run knex migrate:rollback --all')
+        execSync('npm run knex migrate:latest')
+        
     })
 
     test('criar nova transação', async () => {
