@@ -40,3 +40,5 @@ Função: Valida os dados recebidos pela aplicação, garantindo que estejam no 
 
 Vitest: 
 Função: Ferramenta utilizada para realizar testes do nosso código
+
+Supertest:
