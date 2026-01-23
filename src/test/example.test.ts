@@ -1,6 +1,7 @@
 import { expect, test, beforeAll, afterAll, describe } from 'vitest'
 import request from 'supertest'
 import { server } from '../app.js'
+import { string } from 'zod'
 
 
 describe('transactions rotes', () => {
@@ -18,10 +19,10 @@ describe('transactions rotes', () => {
 
     })
 
-    test('O usuário consegue criar uma nova transação', async () => {
+    test('criar nova transação', async () => {
 
         //Fazer a chamada Http para criar nova transação p criar nova transação
-        await request(server.server)
+        const response = await request(server.server)
             .post('/transactions')
             .send({
                 title: 'test transactions',
@@ -30,6 +31,40 @@ describe('transactions rotes', () => {
             })
             .expect(201)
 
+
+    })
+    //Obs: Nunca se pode ter um teste que dependa de um outro teste
+
+    test('Listando trasações', async () => {
+
+        const createTransactionResponse = await request(server.server)
+            .post('/transactions')
+            .send({
+                title: 'test transactions',
+                amount: 12,
+                type: 'credit'
+            })
+
+        const cookies = createTransactionResponse.get('Set-Cookie')
+
+        if (!cookies) {
+            throw new Error('Cookies não definidos')
+        }
+
+        //Realizando requisiçao para rota get 
+
+        const listTransactionsResponse = await request(server.server)
+            .get('/transactions')
+            .set('Cookie', cookies)
+            .expect(200)
+
+
+        expect(listTransactionsResponse.body.transactions).toEqual([
+            expect.objectContaining({
+                title: 'test transactions',
+                amount: 12,
+            })
+        ])
     })
 })
 
