@@ -1,28 +1,42 @@
-Tecnologias usadas: 
+Tecnologias usadas:
 
-micro framework: fastify
+Fastify (micro framework)
+Função: Framework web para Node.js usado para criar APIs de forma rápida e performática.
+Instalação:
+npm install fastify
 
+TypeScript
+Função: Adiciona tipagem ao JavaScript para evitar erros e melhorar a organização do código.
+Obs: O Node.js não reconhece TypeScript nativamente.
+Instalação:
+npm install -D typescript
 
-OBS: O node não reconhece o TypeScript, então é necessário instalar dependência:
-npm i -D typescript
-
-Vamos precisar criar um arquivo de configurações do typeScript:
+Criar arquivo de configuração do TypeScript:
 npx tsc --init
 
-Como o node n foi feito para o type temos que instalar o pacote @type/node
+@types/node
+Função: Permite que o TypeScript reconheça as APIs do Node.js (process, fs, path, etc).
+Instalação:
 npm install -D @types/node
 
+TSX
+Função: Permite executar arquivos TypeScript diretamente, sem precisar compilar antes.
+Instalação:
+npm install -D tsx
 
-Ferramenta TSX :Permite executar arquivos TypeScript/TSX diretamente, sem precisar compilar antes, facilitando o desenvolvimento e testes.
-npm i tsx -D
+Uso exemplo:
+npx tsx src/server.ts
 
-Ferramenta EcmaScript Lint: Ferramenta que analisa código JavaScript, encontra erros, más práticas e ajuda a padronizar o código conforme regras definidas.
-npm i eslint   @rocketseat/eslint-config -D
------------ |  ----------------------------
-Ferramenta    pacote rocketseat
+ESLint
+Função: Analisa o código e ajuda a evitar erros e más práticas.
+Instalação:
+npm install -D eslint @rocketseat/eslint-config
 
+Migrations
+Função: Histórico versionado das alterações no banco de dados (criação e mudança de tabelas).
 
-------,, --------
+Zod
+Função: Valida os dados recebidos pela aplicação, garantindo que estejam no formato correto.
 
-Migrations: Migration é o histórico versionado das mudanças do banco de dados.
-Zod: Ele garante que os dados que chegam no seu código têm o formato correto.
+Vitest: 
+Função: Ferramenta utilizada para realizar testes do nosso código

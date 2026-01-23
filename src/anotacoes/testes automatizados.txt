@@ -1,0 +1,9 @@
+testes automatizados os 3 mais famosos:
+
+- Unitários: Testa um unidade da aplicação 
+- Integração: Teste onde valida a comunicaçao de uma ou mais unidades
+- e2e - ponta a ponta : Testes que validam todos os processos como se fosse um usuário
+
+- Pirâmide de testes: O melhor caso não tenhamos pratica em testes automatizados 
+serio o e2e(não depende de nenhuma tech, não depende de nenhuma arquitetura ).
+
