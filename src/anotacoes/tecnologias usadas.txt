@@ -42,3 +42,4 @@ Vitest:
 Função: Ferramenta utilizada para realizar testes do nosso código
 
 Supertest:
+TSUP:
