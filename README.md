@@ -64,7 +64,7 @@ O SQLite foi escolhido por ser leve e ideal para estudos e desenvolvimento local
 
 ⚙️ Configuração do Ambiente
 1️⃣ Clonar o repositório
-git clone <url-do-repositorio>
+git clone (https://github.com/LucasBartl/Criando-API-REST)
 cd api-rest
 2️⃣ Instalar as dependências
 npm install
@@ -78,7 +78,7 @@ PORT=3333
 Executa a aplicação diretamente em TypeScript:
 
 npm run dev
-🔵 Build (Produção)
+🔵 Build
 Compila o projeto para JavaScript:
 
 npm run build
