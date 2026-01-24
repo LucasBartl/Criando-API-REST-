@@ -67,13 +67,12 @@ Validam o sistema como um todo
 
 📁 Estrutura do Projeto:
 API REST
-
 ├─ .vscode/
 ├─ database/
 │  ├─ migrations/
 │  └─ database.sqlite
 │
-├─ dist/                 
+├─ dist/
 ├─ node_modules/
 │
 ├─ src/
@@ -83,9 +82,9 @@ API REST
 │  ├─ middlewares/
 │  ├─ routes/
 │  ├─ test/
-│  ├─ app.ts            
-│  ├─ database.ts        
-│  └─ server.ts           
+│  ├─ app.ts
+│  ├─ database.ts
+│  └─ server.ts
 │
 ├─ .env
 ├─ .env.example
@@ -95,11 +94,10 @@ API REST
 ├─ eslintignore
 ├─ eslintrc.json
 ├─ gitignore
-│
-├─ knexfile.ts           
+├─ knexfile.ts
 ├─ package.json
 ├─ package-lock.json
-├─ transactions           
+├─ transactions
 └─ tsconfig.json
 
 📌 Objetivo do Projeto
