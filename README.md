@@ -53,3 +53,53 @@ API REST
 ├─ package-lock.json
 ├─ transactions
 └─ tsconfig.json
+🗄️ Banco de Dados
+Banco: SQLite
+
+Arquivo: database/database.sqlite
+
+Gerenciamento de migrations: Knex.js
+
+O SQLite foi escolhido por ser leve e ideal para estudos e desenvolvimento local.
+
+⚙️ Configuração do Ambiente
+1️⃣ Clonar o repositório
+git clone <url-do-repositorio>
+cd api-rest
+2️⃣ Instalar as dependências
+npm install
+3️⃣ Configurar variáveis de ambiente
+Crie um arquivo .env baseado no .env.example:
+
+DATABASE_URL=./database/database.sqlite
+PORT=3333
+▶️ Executando o Projeto
+🟢 Modo Desenvolvimento
+Executa a aplicação diretamente em TypeScript:
+
+npm run dev
+🔵 Build (Produção)
+Compila o projeto para JavaScript:
+
+npm run build
+Depois execute:
+
+node dist/server.js
+🧬 Migrations
+Para rodar as migrations do banco de dados:
+
+npx knex migrate:latest
+Para desfazer a última migration:
+
+npx knex migrate:rollback
+📌 Objetivo do Projeto
+Aprender a estruturar uma API REST
+
+Utilizar Fastify com TypeScript
+
+Trabalhar com banco de dados usando Knex
+
+Aplicar migrations e boas práticas de organização
+
+Servir como base para projetos futuros e portfólio
+
