@@ -67,6 +67,7 @@ Validam o sistema como um todo
 
 📁 Estrutura do Projeto:
 API REST
+
 ├─ .vscode/
 ├─ database/
 │  ├─ migrations/
