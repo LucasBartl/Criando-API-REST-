@@ -73,7 +73,7 @@ API REST
 │  ├─ migrations/
 │  └─ database.sqlite
 │
-├─ dist/                  ← código compilado (produção)
+├─ dist/                 
 ├─ node_modules/
 │
 ├─ src/
@@ -83,9 +83,9 @@ API REST
 │  ├─ middlewares/
 │  ├─ routes/
 │  ├─ test/
-│  ├─ app.ts              ← configuração do Fastify
-│  ├─ database.ts         ← conexão com o banco (Knex)
-│  └─ server.ts           ← start do servidor
+│  ├─ app.ts            
+│  ├─ database.ts        
+│  └─ server.ts           
 │
 ├─ .env
 ├─ .env.example
@@ -96,10 +96,10 @@ API REST
 ├─ eslintrc.json
 ├─ gitignore
 │
-├─ knexfile.ts            ← config do Knex (SQLite)
+├─ knexfile.ts           
 ├─ package.json
 ├─ package-lock.json
-├─ transactions           ← (provavelmente pasta/arquivo de apoio)
+├─ transactions           
 └─ tsconfig.json
 
 📌 Objetivo do Projeto
